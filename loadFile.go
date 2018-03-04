@@ -1,4 +1,4 @@
-package main
+package goconfig
 
 import (
 	"github.com/tsuru/config"
