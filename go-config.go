@@ -55,7 +55,7 @@ func getParams(maps map[interface{}]interface{}, key string) {
 		}
 
 		switch t := v.(type) {
-		case string, []interface{}:
+		case string, int, []interface{}:
 			value, error := getParameter(prefix)
 
 			if error == true || value == nil {
@@ -64,6 +64,9 @@ func getParams(maps map[interface{}]interface{}, key string) {
 				switch tp := v.(type) {
 				case string:
 					example = v.(string)
+					typeVal = "string"
+				case int:
+					example = fmt.Sprint(v)
 					typeVal = "string"
 				case []interface{}:
 					var count int = 0
