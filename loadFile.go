@@ -2,6 +2,7 @@ package goconfig
 
 import (
 	"github.com/tsuru/config"
+	"os"
 )
 
 func LoadFile(path string) {
@@ -11,4 +12,13 @@ func LoadFile(path string) {
 	if errFile != nil {
 		panic(errFile)
 	}
+}
+
+func getCurrentDirectory() string {
+	pwd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
+	return pwd
 }
